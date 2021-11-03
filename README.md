@@ -1,10 +1,10 @@
-<img src="https://socialify.git.ci/huttotw/grules/image?description=1&font=Raleway&language=1&owner=1&pattern=Overlapping%20Hexagons&stargazers=1&theme=Dark" alt="grules" />
-
 # Introduction
 
 A simple rules engine with great flexibility capable of building binary decision trees of any depth.
 
 Utilizes [gjson](https://github.com/tidwall/gjson) for pathing for extra flexibility.
+
+Inspired by [grules](https://github.com/huttotw/grules)
 
 # Simple Example (pass)
 
@@ -201,13 +201,3 @@ go test -run none -bench . -benchtime 3s -benchmem
 All benchmarks were run on:
 
 MacOS High Sierra 2.6Ghz Intel Core i7 16 GB 2400 MHz DDR4
-
-# License
-
-Copyright &copy; 2019 Trevor Hutto
-
-Licensed under the Apache License, Version 2.0 (the "License"); you may not use this work except in compliance with the License. You may obtain a copy of the License in the LICENSE file, or at:
-
-http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
