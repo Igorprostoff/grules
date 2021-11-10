@@ -1,4 +1,4 @@
-module github.com/huttotw/grules
+module github.com/thestephenstanton/grules
 
 go 1.17
 
