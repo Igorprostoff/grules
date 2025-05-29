@@ -6,7 +6,9 @@ type Rule struct {
 	Path     string      `json:"path,omitempty"`
 	Comparer string      `json:"comparer,omitempty"`
 	Value    interface{} `json:"value,omitempty"`
-
+	Name     string      `json:"name,omitempty"`
+	Action   string      `json:"action,omitempty"`
+	
 	Operator Operator `json:"operator,omitempty"`
 	Rules    []Rule   `json:"rules,omitempty"`
 }

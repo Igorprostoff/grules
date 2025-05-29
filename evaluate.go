@@ -40,32 +40,38 @@ func evaluateObject(object gjson.Result, rule Rule) bool {
 	if !found {
 		return false
 	}
-
-	if value.IsArray() {
+	if value.IsArray() && rule.Comparer != "contains" {
 		return evaluateArrayOfPrimitives(value.Array(), rule, compare)
 	}
-
-	return evaluatePrimitive(value, rule, compare)
+	res := evaluatePrimitive(value, rule, compare)
+	return res
 }
 
 func evaluateMultiRule(object gjson.Result, rules []Rule, operator Operator) bool {
-	for _, rule := range rules {
-		switch operator {
-		case Or:
+	switch operator {
+	case Or:
+		for _, rule := range rules {
 			evalTrue := evaluateObject(object, rule)
 			if evalTrue {
 				return true
 			}
-		case And:
-			fallthrough
-		default:
+		}
+	case And:
+		for _, rule := range rules {
 			evalTrue := evaluateObject(object, rule)
 			if !evalTrue {
 				return false
 			}
-
-			return true
 		}
+		return true
+	default:
+		for _, rule := range rules {
+			evalTrue := evaluateObject(object, rule)
+			if !evalTrue {
+				return false
+			}
+		}
+		return true
 	}
 
 	return false
